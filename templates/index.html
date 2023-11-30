@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Generator</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #3498db, #8e44ad); /* Gradient background */
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            flex-direction: column; /* Vertical arrangement */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px; /* Space between title and form */
+        }
+
+        form {
+            background-color: rgba(196, 227, 243, 0.227); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #f8f6f6;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            
+        }
+
+        button {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #219d54;
+        }
+    </style>
+</head>
+<body>
+    <h1>Projectile Motion Video</h1>
+    <form action="/generate_video" method="post">
+        <label for="velocity">Velocity:</label>
+        <input type="number" name="velocity" required>
+        <label for="angle">Starting Angle:</label>
+        <input type="number" name="angle" required>
+        <button type="submit">Generate Video</button>
+    </form>
+</body>
+</html>
