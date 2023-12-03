@@ -5,7 +5,7 @@ import os
 
 
 """
-modify this to change how the lines momve over time
+modify this to change how the points move over time
 """
 
 
