@@ -23,6 +23,8 @@ def index():
 @app.route('/generate_video', methods=['POST', 'GET'])
 def generate_video():
     print("I made it here")
+    # taking out the codecs into the log
+    check_available_codecs()
     velocity = request.form.get('velocity')
     angle = request.form.get('angle')
 
@@ -84,7 +86,7 @@ def convert_images_to_video():
 
     # Use 'avc1' as the fourcc code for H.264 encoding
     video = cv2.VideoWriter(
-        video_name, cv2.VideoWriter_fourcc(*'mp4v'), 2, (width, height))
+        video_name, cv2.VideoWriter_fourcc(*'avc1'), 2, (width, height))
 
     for image in images:
         video.write(cv2.imread(os.path.join(image_folder, image)))
@@ -100,6 +102,28 @@ def convert_images_to_video():
 """
 if shit goes tits up delete this 1/2
 """
+
+"""
+this is to check with codecs are available...
+"""
+
+
+def check_available_codecs():
+    # Get OpenCV build information
+    build_info = cv2.getBuildInformation()
+
+    # Search for the VideoWriter_fourcc information in the build information
+    start_index = build_info.find("Video I/O:")
+    end_index = build_info.find(
+        "Parser:") if "Parser:" in build_info else len(build_info)
+    video_io_info = build_info[start_index:end_index]
+
+    # Print the available codecs
+    print("Available Codecs:")
+    for line in video_io_info.splitlines():
+        if "fourcc" in line:
+            codecs = line.split(":")[1].strip()
+            print(codecs)
 
 
 if __name__ == '__main__':
