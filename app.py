@@ -84,7 +84,7 @@ def convert_images_to_video():
 
     # Use 'avc1' as the fourcc code for H.264 encoding
     video = cv2.VideoWriter(
-        video_name, cv2.VideoWriter_fourcc(*'avc1'), 2, (width, height))
+        video_name, cv2.VideoWriter_fourcc(*'mp4v'), 2, (width, height))
 
     for image in images:
         video.write(cv2.imread(os.path.join(image_folder, image)))
