@@ -49,7 +49,7 @@ will need to change args of this if you create drag as well
 """
 
 
-def main_one(x0=0, y0=0, v0=20, theta_deg=45, num_frames=150, g=9.8):
+def main_one(x0=0, y0=0, v0=20, theta_deg=45, num_frames=10, g=9.8):
 
     # Generate projectile motion frames
     x_values, y_values = projectile_motion_frames(
